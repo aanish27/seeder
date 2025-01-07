@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $categories = ["Device", "Accessory", "Home Appliance", "Fashion"];
         Vendor::factory(10)->create();
         foreach ($categories as $category) {
-            Category::make(['name' => $category]);
+            Category::factory()->make(['name' => $category])->save();
         };
 
         $items = [
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             for ($j=0; $j < 4 ; $j++) {
                 Item::factory()->make(['name' => $items[$i][$j],
                                         'category_id' => $i+1
-            ]);
+            ])->save();
             };
         };
         Purchase::factory(1000)->create();

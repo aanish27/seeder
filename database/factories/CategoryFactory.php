@@ -15,11 +15,14 @@ class CategoryFactory extends Factory
      * @return array<string, mixed>
      */
 
-
+    
 
     public function definition(): array
     {
+        $categories = ["Device", "Accessory", "Home Appliance", "Fashion"];
+
         return [
+            'name' => $categories[0],
             'slug' => fake()->slug(),
             'description' => fake()->sentence(),
             'image' => fake()->url(),
